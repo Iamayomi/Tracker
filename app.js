@@ -6,7 +6,7 @@ app.set('trust proxy', true);
 
 app.use(express.json());
 
-app.get('/tracker/api/hello?visitor_name=Mark',  async function (req, res) {
+app.get('/tracker/api/hello?visitor_name=mark',  async function (req, res) {
 	try {
 const getIp = await axios.get(`https://api.ipify.org?format=json`);
        const ip = getIp.data.ip;
