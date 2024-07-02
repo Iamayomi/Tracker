@@ -1,16 +1,14 @@
 const express = require('express');
 const app = express();
 const axios = require('axios');
-const requestIp = require('request-ip');
 
-//app.set('trust proxy', true);
+app.set('trust proxy', true);
 
 app.use(express.json());
-app.use(requestIp.mw());
 
-app.get('/tracker/api/hello',  async function (req, res) {
+app.get('/tracker/api/hello?visitor_name=Mark',  async function (req, res) {
 	try {
-       const ip = await req.clientIp;
+       const ip = await req.ip;
        const getLocation = await axios.get(`http://ip-api.com/json/${ip}`);
 
        const { status, lat, lon, city } = getLocation.data;
