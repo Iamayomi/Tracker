@@ -8,8 +8,7 @@ app.use(express.json());
 
 app.get('/getclientData/api/hello',  async function (req, res) {
 	try {
-const getIp = await axios.get(`https://api.ipify.org?format=json`);
-       const ip = getIp.data.ip;
+       const ip = req.headers['x-forwarded-for'].split(',')[0] || req.connection.remoteAddress;
 
        const getLocation = await axios.get(`http://ip-api.com/json/${ip}`);
 
