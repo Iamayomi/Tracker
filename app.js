@@ -24,7 +24,7 @@ app.get('/getclientData/api/hello',  async function (req, res) {
        res.status(200).json({
        	  client_ip: ip,
           location: city,
-          greeting: `Hello, ${req.query.visitor_name}, the temperature is ${getWeather.data.current.temp_c} degrees Calcius in ${city}
+          greeting: `Hello, ${req.query.visitor_name}, the temperature is ${getWeather.data.current.temp_c} degrees Calcius in ${city}`
        })
 
 	} catch(err){
