@@ -28,8 +28,7 @@ const getIp = await axios.get(`https://api.ipify.org?format=json`);
        clientData.greeting = `Hello, ${req.query.visitor_name}, the temperature is ${getWeather.data.current.temp_c} degrees Calcius in ${city}`;
 
        res.status(200).json({
-       	  status: "success",
-       	  data: clientData
+       	  clientData
        })
 
 	} catch(err){
