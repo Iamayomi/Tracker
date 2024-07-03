@@ -20,14 +20,11 @@ app.get('/getclientData/api/hello',  async function (req, res) {
 
        const getWeather = await axios.get(`http://api.weatherapi.com/v1/current.json?key=${process.env.WEATHER_KEY}&q=${lat},${lon}`);
 
-       const clientData = { };
-
-       clientData.client_ip = ip;
-       clientData.location = city;
-       clientData.greeting = `Hello, ${req.query.visitor_name}, the temperature is ${getWeather.data.current.temp_c} degrees Calcius in ${city}`;
-
+      
        res.status(200).json({
-       	  clientData
+       	  client_ip: ip,
+          location: city,
+          greeting: `Hello, ${req.query.visitor_name}, the temperature is ${getWeather.data.current.temp_c} degrees Calcius in ${city}
        })
 
 	} catch(err){
