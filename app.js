@@ -6,7 +6,7 @@ app.set('trust proxy', true);
 
 app.use(express.json());
 
-app.get('/getclientData/api/hello',  async function (req, res) {
+app.get('/api/hello',  async function (req, res) {
 	try {
        const ip = req.headers['x-forwarded-for'].split(',')[0] || req.connection.remoteAddress;
 
